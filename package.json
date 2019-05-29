@@ -1,5 +1,5 @@
 {
-  "name": "cms-node",
+  "name": "example-node-api",
   "version": "1.0.0",
   "description": "",
   "main": "dist/app/server.js",
