@@ -1,28 +1,37 @@
 {
   "name": "example-node-api",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
-  "main": "dist/app/server.js",
+  "main": "dist/app/index.js",
   "scripts": {
-    "start": "npm run build && nodemon dist/app/server.js",
-    "dev": "nodemon src/app/server.ts",
     "build": "rm -rf ./dist && tsc",
+    "start": "npm run build && nodemon dist/app/index.js",
+    "dev": "nodemon src/app/index.ts",
     "tslint": "./node_modules/.bin/tslint --project .",
-    "jasmine": "npm run build && ./node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=jasmine.json"
+    "test:unit": "npm run build && ./node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=jasmine.json",
+    "migrate:up": "./node_modules/.bin/db-migrate up",
+    "migrate:down": "./node_modules/.bin/db-migrate down"
   },
   "author": "Iván Córdoba Donet",
   "license": "MIT",
   "dependencies": {
-    "@types/mysql": "^2.15.6",
     "body-parser": "^1.19.0",
+    "db-migrate": "^0.11.11",
+    "db-migrate-pg": "^1.2.2",
+    "dotenv": "^8.2.0",
     "express": "^4.17.0",
-    "mysql": "^2.17.1",
-    "request": "^2.88.0"
+    "pg": "^8.2.0",
+    "reflect-metadata": "^0.1.13",
+    "request": "^2.88.0",
+    "uuid": "^8.0.0"
   },
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.16.1",
     "@types/jasmine": "^3.3.12",
-    "@types/node": "^12.0.2",
+    "@types/node": "^12.12.39",
+    "@types/pg": "^7.14.3",
+    "@types/uuid": "^7.0.3",
     "jasmine": "^3.4.0",
     "nodemon": "^1.19.0",
     "ts-node": "^8.1.1",

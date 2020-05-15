@@ -2,36 +2,46 @@ version: '3'
 
 services:
 
-  #App Service
+  #PostgreSQL Service
+  db:
+    image: postgres:11.1-alpine
+    container_name: nabby_node_postgresql
+    environment:
+      POSTGRES_USER: ${POSTGRESQL_DEV_USER}
+      POSTGRES_PASSWORD: ${POSTGRESQL_DEV_PASSWORD}
+      POSTGRES_DB: ${POSTGRESQL_DEV_DATABASE}
+    ports:
+      - '${POSTGRESQL_DEV_PORT}:${POSTGRESQL_DEV_PORT}'
+    volumes:
+      - ./docker/postgres/:/docker-entrypoint-initdb.d/
+    networks:
+      - api-network
+
+  #Node Service
   app:
-    image: "node:alpine"
-    container_name: example_node_app
+    image: "node:14-alpine"
+    container_name: nabby_node_app
     restart: unless-stopped
     tty: true
     working_dir: /app
-    environment:
-      - NODE_ENV=production
+    env_file: .env
     ports:
-      - 1234:1234
+      - ${NODE_PORT}:${NODE_PORT}
     volumes:
       - ./:/app
     links:
       - db
     depends_on:
       - db
-    
-  #Mysql Service
-  db:
-    image: mysql:latest
-    container_name: example_node_mysql
-    restart: unless-stopped
-    command: --default-authentication-plugin=mysql_native_password
-    environment:
-      MYSQL_DATABASE: EXAMPLE
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-      MYSQL_ROOT_PASSWORD: root
-    ports:
-      - 3306:3306
-    expose:
-      - '3306'
+    networks:
+      - api-network
+
+#Docker Networks
+networks:
+  api-network:
+    driver: bridge
+
+#Volumes
+volumes:
+  dbdata:
+    driver: local

@@ -1,0 +1,30 @@
+{
+    "defaultEnv": {"ENV": "NODE_ENV"},
+    "dev": {
+        "driver": "pg",
+        "user": {"ENV": "POSTGRESQL_DEV_USER"},
+        "password": {"ENV": "POSTGRESQL_DEV_PASSWORD"},
+        "host": {"ENV": "POSTGRESQL_DEV_HOST"},
+        "database": {"ENV": "POSTGRESQL_DEV_DATABASE"},
+        "port": {"ENV": "POSTGRESQL_DEV_PORT"},
+        "schema": "public"
+    },
+    "test": {
+        "driver": "pg",
+        "user": {"ENV": "POSTGRESQL_TEST_USER"},
+        "password": {"ENV": "POSTGRESQL_TEST_PASSWORD"},
+        "host": {"ENV": "POSTGRESQL_TEST_HOST"},
+        "database": {"ENV": "POSTGRESQL_TEST_DATABASE"},
+        "port": {"ENV": "POSTGRESQL_TEST_PORT"},
+        "schema": "public"
+    },
+    "prod": {
+        "driver": "pg",
+        "user": {"ENV": "POSTGRESQL_PROD_USER"},
+        "password": {"ENV": "POSTGRESQL_PROD_PASSWORD"},
+        "host": {"ENV": "POSTGRESQL_PROD_HOST"},
+        "database": {"ENV": "POSTGRESQL_PROD_DATABASE"},
+        "port": {"ENV": "POSTGRESQL_PROD_PORT"},
+        "schema": "public"
+    }
+}
