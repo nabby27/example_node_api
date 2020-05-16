@@ -16,8 +16,9 @@ export class UsersGetController {
     public async run(req: Request, res: Response) {
         this.userSearcher.run()
             .then((users: User[]) => {
+                const usersResponse = users.map((user: User) => user.toResponse());
                 res.status(200);
-                res.send({users});
+                res.send(usersResponse);
             })
             .catch((error: any) => console.log(error));
     }

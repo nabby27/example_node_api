@@ -19,7 +19,7 @@ export class UserGetController {
         this.userSearcherOne.run(id)
             .then((user: User) => {
                 res.status(200);
-                res.send(user);
+                res.send(user.toResponse());
             })
             .catch((error: any) => console.log(error));
     }

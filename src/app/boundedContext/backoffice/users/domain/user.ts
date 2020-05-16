@@ -13,4 +13,11 @@ export class User extends AggregateRoot {
         this.name = name;
     }
 
+    public toResponse(): object {
+        return {
+            id: this.id.getValue(),
+            name: this.name.getValue(),
+        };
+    }
+
 }
