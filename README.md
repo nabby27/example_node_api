@@ -71,4 +71,4 @@ First of all, create the .`env` file (you have the example of the `.env.example`
 
 After starting the docker services and the application node make sure to run the migration up to have the database structure and two users record.
 
-With that done you can access the endpoint [http://localhost:8080/backoffice/users](http://localhost:8080/backoffice/users).
+With that done you can access the endpoints like [http://localhost:8080/backoffice/users](http://localhost:8080/backoffice/users) or [http://localhost:8080/backoffice/users/32547dd7-617a-4985-a59a-91a176e55b83](http://localhost:8080/backoffice/users/32547dd7-617a-4985-a59a-91a176e55b83).
