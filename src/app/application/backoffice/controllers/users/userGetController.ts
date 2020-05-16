@@ -1,23 +1,25 @@
 import { Request, Response } from 'express';
-import { UserSearcher } from '../../../../boundedContext/backoffice/users/application/search/userSearcher';
+import { UserSearcherOne } from '../../../../boundedContext/backoffice/users/application/search/userSearcherOne';
 import { User } from '../../../../boundedContext/backoffice/users/domain/user';
+import { UserId } from '../../../../boundedContext/backoffice/users/domain/userId';
 import { UserRepositoryPg } from '../../../../boundedContext/backoffice/users/infraestructure/persistence/userRepositoryPg';
 
-export class UsersGetController {
+export class UserGetController {
 
-    private userSearcher: UserSearcher;
+    private userSearcherOne: UserSearcherOne;
     private userRepositoryPg: UserRepositoryPg;
 
     constructor() {
         this.userRepositoryPg = new UserRepositoryPg();
-        this.userSearcher = new UserSearcher(this.userRepositoryPg);
+        this.userSearcherOne = new UserSearcherOne(this.userRepositoryPg);
     }
 
     public async run(req: Request, res: Response) {
-        this.userSearcher.run()
-            .then((users: User[]) => {
+        const id: UserId = new UserId(req.params.id);
+        this.userSearcherOne.run(id)
+            .then((user: User) => {
                 res.status(200);
-                res.send({users});
+                res.send(user);
             })
             .catch((error: any) => console.log(error));
     }

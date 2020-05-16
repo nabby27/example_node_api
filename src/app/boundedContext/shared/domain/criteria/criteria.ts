@@ -1,3 +1,4 @@
+import { Filter } from './filter';
 import { Filters } from './filters';
 import { Order } from './order';
 
@@ -23,7 +24,7 @@ export class Criteria {
         return !this.order.isNone();
     }
 
-    public plainFilters(): [] {
+    public plainFilters(): Filter[] {
         return this.filters.getFilters();
     }
 

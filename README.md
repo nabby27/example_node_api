@@ -69,6 +69,6 @@ docker-compose exec app npx db-migrate create {name_of_migration}
 
 First of all, create the .`env` file (you have the example of the `.env.example` file).
 
-After starting the docker services and the application node make sure to run the migration up to have the database structure and a user record.
+After starting the docker services and the application node make sure to run the migration up to have the database structure and two users record.
 
 With that done you can access the endpoint [http://localhost:8080/backoffice/users](http://localhost:8080/backoffice/users).

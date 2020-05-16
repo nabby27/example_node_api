@@ -1,5 +1,6 @@
 import { User } from '../../../../../../app/boundedContext/backoffice/users/domain/user';
 import { UserRepository } from '../../../../../../app/boundedContext/backoffice/users/domain/userRepository';
+import { UserId } from '../../../../../../app/boundedContext/backoffice/users/domain/userId';
 
 export class UserRepositoryInMemory implements UserRepository {
 
@@ -11,6 +12,10 @@ export class UserRepositoryInMemory implements UserRepository {
 
     public setUsers(user: User[]) {
         this.users = user;
+    }
+
+    public searchOne(id: UserId): Promise<User> {
+        throw new Error('Method not implemented.');
     }
 
     public search(): Promise<User[]> {

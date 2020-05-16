@@ -1,8 +1,8 @@
 export class Collection {
 
-    private items: [];
+    private items: any[];
 
-    constructor(items: []) {
+    constructor(items: any[]) {
         this.items = items;
     }
 
@@ -14,7 +14,7 @@ export class Collection {
         this.items.forEach((item) => fn(item));
     }
 
-    protected getItems(): [] {
+    protected getItems(): any[] {
         return this.items;
     }
 

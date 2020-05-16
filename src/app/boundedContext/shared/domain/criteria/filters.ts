@@ -1,12 +1,19 @@
 import { Collection } from '../collection';
+import { Filter } from './filter';
 
 export class Filters extends Collection {
 
-    constructor(values: []) {
-        super(values);
+    constructor(items: Filter[]) {
+        super(items);
     }
 
-    public getFilters(): [] {
+    public add(filter: Filter): Filters {
+        const filters = this.getFilters();
+        filters.push(filter);
+        return new Filters(filters);
+    }
+
+    public getFilters(): Filter[] {
         return this.getItems();
     }
 

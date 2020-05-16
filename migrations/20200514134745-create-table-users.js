@@ -20,7 +20,10 @@ exports.up = function(db) {
     name: { type: 'string', notNull: true }
   })
   .then(
-    (result) => db.insert('users', ['id', 'name'], ['32547dd7-617a-4985-a59a-91a176e55b83', 'Iván']),
+    (result) => {
+      db.insert('users', ['id', 'name'], ['32547dd7-617a-4985-a59a-91a176e55b83', 'Iván']),
+      db.insert('users', ['id', 'name'], ['43ba0b24-4d0b-40f7-aa7f-1b2a3058f484', 'Nabby'])
+    },
     (err) => { return }
   );
 };

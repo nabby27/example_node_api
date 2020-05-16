@@ -16,7 +16,7 @@ export class Filter {
 
     constructor(field: FilterField, operator: FilterOperator, value: FilterValue) {
         this.field = field;
-        this.operator   = operator;
+        this.operator = operator;
         this.value  = value;
     }
 
