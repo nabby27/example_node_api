@@ -7,11 +7,11 @@ services:
     image: postgres:11.1-alpine
     container_name: nabby_node_postgresql
     environment:
-      POSTGRES_USER: ${POSTGRESQL_DEV_USER}
-      POSTGRES_PASSWORD: ${POSTGRESQL_DEV_PASSWORD}
-      POSTGRES_DB: ${POSTGRESQL_DEV_DATABASE}
+      POSTGRES_USER: ${POSTGRESQL_USER}
+      POSTGRES_PASSWORD: ${POSTGRESQL_PASSWORD}
+      POSTGRES_DB: ${POSTGRESQL_DATABASE}
     ports:
-      - '${POSTGRESQL_DEV_PORT}:${POSTGRESQL_DEV_PORT}'
+      - '${POSTGRESQL_PORT}:${POSTGRESQL_PORT}'
     volumes:
       - ./docker/postgres/:/docker-entrypoint-initdb.d/
     networks:
