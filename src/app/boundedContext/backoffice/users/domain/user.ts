@@ -13,6 +13,18 @@ export class User extends AggregateRoot {
         this.name = name;
     }
 
+    public getId(): UserId {
+        return this.id;
+    }
+
+    public getValueId(): string {
+        return this.id.getValue();
+    }
+
+    public getValueName(): string {
+        return this.name.getValue();
+    }
+
     public toResponse(): object {
         return {
             id: this.id.getValue(),

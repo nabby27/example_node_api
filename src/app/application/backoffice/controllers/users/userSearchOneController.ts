@@ -4,7 +4,7 @@ import { User } from '../../../../boundedContext/backoffice/users/domain/user';
 import { UserId } from '../../../../boundedContext/backoffice/users/domain/userId';
 import { UserRepositoryPg } from '../../../../boundedContext/backoffice/users/infraestructure/persistence/userRepositoryPg';
 
-export class UserGetController {
+export class UserSearchOneController {
 
     private userSearcherOne: UserSearcherOne;
     private userRepositoryPg: UserRepositoryPg;
@@ -18,8 +18,7 @@ export class UserGetController {
         const id: UserId = new UserId(req.params.id);
         this.userSearcherOne.run(id)
             .then((user: User) => {
-                res.status(200);
-                res.send(user.toResponse());
+                res.status(200).send(user.toResponse());
             })
             .catch((error: any) => console.log(error));
     }

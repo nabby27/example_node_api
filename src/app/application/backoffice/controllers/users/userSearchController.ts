@@ -3,7 +3,7 @@ import { UserSearcher } from '../../../../boundedContext/backoffice/users/applic
 import { User } from '../../../../boundedContext/backoffice/users/domain/user';
 import { UserRepositoryPg } from '../../../../boundedContext/backoffice/users/infraestructure/persistence/userRepositoryPg';
 
-export class UsersGetController {
+export class UserSearchController {
 
     private userSearcher: UserSearcher;
     private userRepositoryPg: UserRepositoryPg;
@@ -17,8 +17,7 @@ export class UsersGetController {
         this.userSearcher.run()
             .then((users: User[]) => {
                 const usersResponse = users.map((user: User) => user.toResponse());
-                res.status(200);
-                res.send(usersResponse);
+                res.status(200).send(usersResponse);
             })
             .catch((error: any) => console.log(error));
     }
