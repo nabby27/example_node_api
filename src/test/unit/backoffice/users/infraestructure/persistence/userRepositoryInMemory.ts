@@ -1,6 +1,6 @@
 import { User } from '../../../../../../app/boundedContext/backoffice/users/domain/user';
-import { UserRepository } from '../../../../../../app/boundedContext/backoffice/users/domain/userRepository';
 import { UserId } from '../../../../../../app/boundedContext/backoffice/users/domain/userId';
+import { UserRepository } from '../../../../../../app/boundedContext/backoffice/users/domain/userRepository';
 
 export class UserRepositoryInMemory implements UserRepository {
 
@@ -22,6 +22,16 @@ export class UserRepositoryInMemory implements UserRepository {
         return new Promise((resolve, reject) => {
             resolve(this.users);
         });
+    }
+
+    save(user: User): void {
+        throw new Error('Method not implemented.');
+    }
+    update(user: User): void {
+        throw new Error('Method not implemented.');
+    }
+    delete(ud: UserId): void {
+        throw new Error('Method not implemented.');
     }
 
 }
