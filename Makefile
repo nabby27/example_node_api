@@ -9,6 +9,12 @@ down:
 install:
 	@docker-compose exec app npm install
 
+migrate-up: up
+	@docker-compose exec app npm run migrate:up
+
+migrate-down: up
+	@docker-compose exec app npm run migrate:down
+
 run-dev: up
 	@docker-compose exec app npm run dev
 
@@ -18,7 +24,7 @@ run-start: up
 run-build: up
 	@docker-compose exec app npm run build
 
-run-test: run-test-unit
+run-test: run-test-unit eslint-fix
 
 run-test-unit: up
 	@docker-compose exec app npm run test:unit
