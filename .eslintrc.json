@@ -1,0 +1,267 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "ignorePatterns": [
+        "karma.conf.js",
+        "node_modules/**/*",
+        "dist/**/*"
+    ],
+    "rules": {
+        "no-console": 1,
+        "eqeqeq": 2,
+        "dot-notation": 2,
+        "curly": 2,
+        "default-case": 2,
+        "no-new-func": 2,
+        "no-param-reassign": 2,
+        "default-case-last": 2,
+        "default-param-last": 2,
+        "yoda": 2,
+        "init-declarations": [
+            "error",
+            "always"
+        ],
+        "no-unused-expressions": 2,
+        "no-caller": 2,
+        "no-useless-concat": 2,
+        "no-return-assign": 2,
+        "max-classes-per-file": [
+            "error",
+            1
+        ],
+        "no-new": 2,
+        "no-empty-function": [
+            "error",
+            {
+                "allow": [
+                    "constructors"
+                ]
+            }
+        ],
+        "no-loop-func": 2,
+        "no-magic-numbers": 2,
+        "no-multi-spaces": 2,
+        "no-else-return": [
+            "error",
+            {
+                "allowElseIf": false
+            }
+        ],
+        "dot-location": [
+            "error",
+            "property"
+        ],
+        "no-extra-parens": [
+            "error",
+            "all",
+            {
+                "returnAssign": false,
+                "nestedBinaryExpressions": false,
+                "enforceForArrowConditionals": false
+            }
+        ],
+        "space-before-blocks": [
+            2,
+            {
+                "functions": "always",
+                "keywords": "always",
+                "classes": "always"
+            }
+        ],
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-use-before-define": 2,
+        "array-bracket-newline": [
+            "error",
+            "consistent"
+        ],
+        "array-bracket-spacing": [
+            "error",
+            "never",
+            {
+                "arraysInArrays": false,
+                "objectsInArrays": false,
+                "singleValue": false
+            }
+        ],
+        "array-element-newline": [
+            "error",
+            "consistent"
+        ],
+        "block-spacing": [
+            "error",
+            "never"
+        ],
+        "brace-style": [
+            "error",
+            "stroustrup"
+        ],
+        "camelcase": 2,
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "comma-spacing": [
+            "error",
+            {
+                "before": false,
+                "after": true
+            }
+        ],
+        "comma-style": [
+            "error",
+            "last"
+        ],
+        "computed-property-spacing": [
+            "error",
+            "never"
+        ],
+        "eol-last": [
+            "error",
+            "always"
+        ],
+        "func-call-spacing": [
+            "error",
+            "never"
+        ],
+        "func-name-matching": [
+            "error",
+            "always"
+        ],
+        "func-style": [
+            "error",
+            "declaration",
+            {
+                "allowArrowFunctions": true
+            }
+        ],
+        "function-call-argument-newline": [
+            "error",
+            "consistent"
+        ],
+        "function-paren-newline": [
+            "error",
+            "multiline"
+        ],
+        "id-denylist": [
+            "error",
+            "data",
+            "err",
+            "e",
+            "cb",
+            "callback"
+        ],
+        "implicit-arrow-linebreak": [
+            "error",
+            "beside"
+        ],
+        "key-spacing": [
+            "error",
+            {
+                "beforeColon": false
+            }
+        ],
+        "keyword-spacing": [
+            "error",
+            {
+                "before": true,
+                "after": true
+            }
+        ],
+        "line-comment-position": [
+            "error",
+            {
+                "position": "beside"
+            }
+        ],
+        "max-lines-per-function": [
+            "error",
+            20
+        ],
+        "max-params": [
+            "error",
+            5
+        ],
+        "no-bitwise": "error",
+        "no-lonely-if": "error",
+        "no-mixed-spaces-and-tabs": "error",
+        "no-multi-assign": "error",
+        "no-multiple-empty-lines": [
+            "error",
+            {
+                "max": 2,
+                "maxEOF": 1
+            }
+        ],
+        "no-trailing-spaces": "error",
+        "no-whitespace-before-property": "error",
+        "object-curly-spacing": [
+            "error",
+            "always",
+            {
+                "arraysInObjects": false,
+                "objectsInObjects": false
+            }
+        ],
+        "object-property-newline": "error",
+        "padded-blocks": [
+            "error",
+            {
+                "classes": "always",
+                "blocks": "never",
+                "switches": "never"
+            },
+            {
+                "allowSingleLineBlocks": true
+            }
+        ],
+        "padding-line-between-statements": [
+            "error",
+            {
+                "blankLine": "always",
+                "prev": "*",
+                "next": "return"
+            }
+        ],
+        "quote-props": [
+            "error",
+            "as-needed"
+        ],
+        "arrow-body-style": [
+            "error",
+            "as-needed",
+            {
+                "requireReturnForObjectLiteral": true
+            }
+        ]
+    }
+}

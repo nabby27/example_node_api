@@ -7,7 +7,8 @@
     "build": "rm -rf ./dist && tsc",
     "start": "npm run build && nodemon dist/app/index.js",
     "dev": "nodemon src/app/index.ts",
-    "tslint": "./node_modules/.bin/tslint --project .",
+    "eslint:check": "npx eslint ./src",
+    "eslint:fix": "npx eslint ./src --fix",
     "test:unit": "npm run build && ./node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=jasmine.json",
     "migrate:up": "./node_modules/.bin/db-migrate up",
     "migrate:down": "./node_modules/.bin/db-migrate down"
@@ -15,7 +16,7 @@
   "author": "Iván Córdoba Donet",
   "license": "MIT",
   "dependencies": {
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "db-migrate": "^0.11.11",
     "db-migrate-pg": "^1.2.2",
@@ -42,10 +43,10 @@
     "@types/passport-jwt": "^3.0.3",
     "@types/pg": "^7.14.3",
     "@types/uuid": "^7.0.3",
+    "eslint": "^7.10.0",
     "jasmine": "^3.4.0",
     "nodemon": "^1.19.0",
     "ts-node": "^8.1.1",
-    "tslint": "^5.16.0",
     "typescript": "^3.4.5"
   }
 }
