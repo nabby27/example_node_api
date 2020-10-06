@@ -6,11 +6,11 @@ export class UserUpdator {
     private userRepository: UserRepository;
 
     constructor(userRepository: UserRepository) {
-        this.userRepository = userRepository;
+      this.userRepository = userRepository;
     }
 
     public run(user: User): void {
-        this.userRepository.update(user);
+      this.userRepository.update(user);
     }
 
 }

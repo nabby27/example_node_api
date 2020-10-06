@@ -6,11 +6,11 @@ export class UserDelator {
     private userRepository: UserRepository;
 
     constructor(userRepository: UserRepository) {
-        this.userRepository = userRepository;
+      this.userRepository = userRepository;
     }
 
     public run(id: UserId): void {
-        this.userRepository.delete(id);
+      this.userRepository.delete(id);
     }
 
 }

@@ -3,22 +3,23 @@ import { Filter } from './filter';
 
 export class Filters extends Collection {
 
-    constructor(items: Filter[]) {
-        super(items);
-    }
+  constructor(items: Filter[]) {
+    super(items);
+  }
 
-    public add(filter: Filter): Filters {
-        const filters = this.getFilters();
-        filters.push(filter);
-        return new Filters(filters);
-    }
+  public add(filter: Filter): Filters {
+    const filters = this.getFilters();
+    filters.push(filter);
 
-    public getFilters(): Filter[] {
-        return this.getItems();
-    }
+    return new Filters(filters);
+  }
 
-    public serialize(): string {
-        return this.getItems().join('^');
-    }
+  public getFilters(): Filter[] {
+    return this.getItems();
+  }
+
+  public serialize(): string {
+    return this.getItems().join('^');
+  }
 
 }

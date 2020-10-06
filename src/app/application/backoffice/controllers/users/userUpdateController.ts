@@ -4,21 +4,22 @@ import { User } from '../../../../boundedContext/backoffice/users/domain/user';
 import { UserId } from '../../../../boundedContext/backoffice/users/domain/userId';
 import { UserName } from '../../../../boundedContext/backoffice/users/domain/userName';
 import { UserRepositoryPg } from '../../../../boundedContext/backoffice/users/infraestructure/persistence/userRepositoryPg';
+import { HTTP_STATUS } from '../../../shared/constants/http_codes';
 
 export class UserUpdateController {
 
-    private userUpdator: UserUpdator;
-    private userRepositoryPg: UserRepositoryPg;
+  private userUpdator: UserUpdator;
+  private userRepositoryPg: UserRepositoryPg;
 
-    constructor() {
-        this.userRepositoryPg = new UserRepositoryPg();
-        this.userUpdator = new UserUpdator(this.userRepositoryPg);
-    }
+  constructor() {
+    this.userRepositoryPg = new UserRepositoryPg();
+    this.userUpdator = new UserUpdator(this.userRepositoryPg);
+  }
 
-    public run(req: Request, res: Response): void {
-        const user = new User(new UserId(req.params.id), new UserName(req.body.name));
-        this.userUpdator.run(user);
-        res.status(200).send();
-    }
+  public run(req: Request, res: Response): void {
+    const user = new User(new UserId(req.params.id), new UserName(req.body.name));
+    this.userUpdator.run(user);
+    res.status(HTTP_STATUS.SUCCESS).send();
+  }
 
 }

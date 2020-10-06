@@ -4,51 +4,53 @@ import { Order } from './order';
 
 export class Criteria {
 
-    private filters: Filters;
-    private order: Order;
-    private offset?: number;
-    private limit?: number;
+  private filters: Filters;
+  private order: Order;
+  private offset?: number;
+  private limit?: number;
 
-    constructor(filters: Filters, order: Order, offset?: number, limit?: number) {
-        this.filters = filters;
-        this.order   = order;
-        this.offset  = offset;
-        this.limit   = limit;
-    }
+  constructor(filters: Filters, order: Order, offset?: number, limit?: number) {
+    this.filters = filters;
+    this.order = order;
+    this.offset = offset;
+    this.limit = limit;
+  }
 
-    public hasFilters(): boolean {
-        return this.filters.count() > 0;
-    }
+  public hasFilters(): boolean {
+    const zero = 0;
 
-    public hasOrder(): boolean {
-        return !this.order.isNone();
-    }
+    return this.filters.count() > zero;
+  }
 
-    public plainFilters(): Filter[] {
-        return this.filters.getFilters();
-    }
+  public hasOrder(): boolean {
+    return !this.order.isNone();
+  }
 
-    public getFilters(): Filters {
-        return this.filters;
-    }
+  public plainFilters(): Filter[] {
+    return this.filters.getFilters();
+  }
 
-    public getOrder(): Order {
-        return this.order;
-    }
+  public getFilters(): Filters {
+    return this.filters;
+  }
 
-    public getOffset(): number | undefined {
-        return this.offset;
-    }
+  public getOrder(): Order {
+    return this.order;
+  }
 
-    public getLimit(): number | undefined {
-        return this.limit;
-    }
+  public getOffset(): number | undefined {
+    return this.offset;
+  }
 
-    public serialize(): string {
-        return this.filters.serialize() + '~~' +
-            this.order.serialize() + '~~' +
-            this.offset + '~~' +
-            this.limit;
-    }
+  public getLimit(): number | undefined {
+    return this.limit;
+  }
+
+  public serialize(): string {
+    return this.filters.serialize() + '~~' +
+      this.order.serialize() + '~~' +
+      this.offset + '~~' +
+      this.limit;
+  }
 
 }

@@ -7,42 +7,42 @@ export class Order {
     private orderType: OrderType;
 
     constructor(orderBy: OrderBy, orderType: OrderType) {
-        this.orderBy = orderBy;
-        this.orderType = orderType;
+      this.orderBy = orderBy;
+      this.orderType = orderType;
     }
 
     public static none(): Order {
-        return new Order(new OrderBy(''), new OrderType(OrderType.NONE));
+      return new Order(new OrderBy(''), new OrderType(OrderType.NONE));
     }
 
     public static fromValues(orderBy?: string, orderType?: string): Order {
-        if (null === orderBy || undefined === orderBy) {
-            return Order.none();
-        } else if (null === orderType || undefined === orderType) {
-            return new Order(new OrderBy(orderBy), new OrderType(OrderType.NONE));
-        } else {
-            return new Order(new OrderBy(orderBy), new OrderType(orderType));
-        }
+      if (orderBy === null || undefined === orderBy) {
+        return Order.none();
+      } if (orderType === null || undefined === orderType) {
+        return new Order(new OrderBy(orderBy), new OrderType(OrderType.NONE));
+      }
+
+      return new Order(new OrderBy(orderBy), new OrderType(orderType));
     }
 
     public static createDesc(orderBy: OrderBy): Order {
-        return new Order(orderBy, new OrderType(OrderType.DESC));
+      return new Order(orderBy, new OrderType(OrderType.DESC));
     }
 
     public getOrderBy(): OrderBy {
-        return this.orderBy;
+      return this.orderBy;
     }
 
     public getOrderType(): OrderType {
-        return this.orderType;
+      return this.orderType;
     }
 
     public isNone(): boolean {
-        return this.getOrderType().isNone();
+      return this.getOrderType().isNone();
     }
 
     public serialize(): string {
-        return this.orderBy.getValue() + '.' + this.orderType.getValue();
+      return this.orderBy.getValue() + '.' + this.orderType.getValue();
     }
 
 }

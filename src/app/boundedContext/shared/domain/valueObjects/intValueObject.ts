@@ -3,15 +3,15 @@ export class IntValueObject {
     protected value: number;
 
     constructor(value: number) {
-        this.value = value;
+      this.value = value;
     }
 
     getValue(): number {
-        return this.value;
+      return this.value;
     }
 
     toString(): string {
-        return this.getValue().toString();
+      return this.getValue().toString();
     }
 
 }

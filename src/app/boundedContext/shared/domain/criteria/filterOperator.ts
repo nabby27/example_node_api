@@ -2,9 +2,9 @@ import { Enum } from '../valueObjects/enum';
 
 export class FilterOperator extends Enum {
 
-    constructor(value: string) {
-        super(value);
-    }
+  constructor(value: string) {
+    super(value);
+  }
 
     static readonly EQUAL = '=';
     static readonly NOT_EQUAL = '!=';
@@ -15,7 +15,7 @@ export class FilterOperator extends Enum {
     private static containing = [FilterOperator.CONTAINS, FilterOperator.NOT_CONTAINS];
 
     public static equal(): FilterOperator {
-        return new FilterOperator('=');
+      return new FilterOperator('=');
     }
 
 }

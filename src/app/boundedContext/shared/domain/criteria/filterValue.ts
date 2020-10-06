@@ -3,8 +3,8 @@ import { FilterOperator } from './filterOperator';
 
 export class FilterValue extends StringValueObject {
 
-    constructor(value: string) {
-        super(value);
-    }
+  constructor(value: string) {
+    super(value);
+  }
 
 }

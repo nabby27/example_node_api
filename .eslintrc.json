@@ -32,10 +32,6 @@
         "default-case-last": 2,
         "default-param-last": 2,
         "yoda": 2,
-        "init-declarations": [
-            "error",
-            "always"
-        ],
         "no-unused-expressions": 2,
         "no-caller": 2,
         "no-useless-concat": 2,

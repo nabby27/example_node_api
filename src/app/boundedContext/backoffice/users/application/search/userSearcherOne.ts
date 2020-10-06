@@ -7,11 +7,11 @@ export class UserSearcherOne {
     private userRepository: UserRepository;
 
     constructor(userRepository: UserRepository) {
-        this.userRepository = userRepository;
+      this.userRepository = userRepository;
     }
 
     public async run(id: UserId): Promise<User> {
-        return await this.userRepository.searchOne(id);
+      return await this.userRepository.searchOne(id);
     }
 
 }

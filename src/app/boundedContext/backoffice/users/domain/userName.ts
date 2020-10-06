@@ -2,8 +2,8 @@ import { StringValueObject } from '../../../shared/domain/valueObjects/stringVal
 
 export class UserName extends StringValueObject {
 
-    constructor(value: string) {
-        super(value);
-    }
+  constructor(value: string) {
+    super(value);
+  }
 
 }

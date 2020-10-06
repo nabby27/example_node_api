@@ -5,27 +5,27 @@ export class Uuid {
     protected value: string;
 
     constructor(value: string) {
-        this.ensureIsValidUuid(value);
-        this.value = value;
+      this.ensureIsValidUuid(value);
+      this.value = value;
     }
 
     static random(): Uuid {
-        return new Uuid(uuidv4());
+      return new Uuid(uuidv4());
     }
 
     getValue(): string {
-        return this.value;
+      return this.value;
     }
 
     equals(other: Uuid): boolean {
-        return this.getValue() === other.getValue();
+      return this.getValue() === other.getValue();
     }
 
     private ensureIsValidUuid(id: string): void {
-        const regexUuidV4 = '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$';
-        if (!id.match(regexUuidV4)) {
-            throw new Error(`${this.constructor.name} does not allow the value ${id}`);
-        }
+      const regexUuidV4 = '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$';
+      if (!id.match(regexUuidV4)) {
+        throw new Error(`${this.constructor.name} does not allow the value ${id}`);
+      }
     }
 
 }

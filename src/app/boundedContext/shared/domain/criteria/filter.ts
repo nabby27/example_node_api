@@ -15,33 +15,33 @@ export class Filter {
     private value: FilterValue;
 
     constructor(field: FilterField, operator: FilterOperator, value: FilterValue) {
-        this.field = field;
-        this.operator = operator;
-        this.value  = value;
+      this.field = field;
+      this.operator = operator;
+      this.value = value;
     }
 
     public static fromValues(values: PlainFilter): Filter {
-        return new Filter(
-            new FilterField(values.field),
-            new FilterOperator(values.operator),
-            new FilterValue(values.value),
-        );
+      return new Filter(
+        new FilterField(values.field),
+        new FilterOperator(values.operator),
+        new FilterValue(values.value)
+      );
     }
 
     public getField(): FilterField {
-        return this.field;
+      return this.field;
     }
 
     public getOperator(): FilterOperator {
-        return this.operator;
+      return this.operator;
     }
 
     public getValue(): FilterValue {
-        return this.value;
+      return this.value;
     }
 
     public serialize(): string {
-        return this.field.getValue() + '.' + this.operator.getValue() + '.' + this.value.getValue();
+      return this.field.getValue() + '.' + this.operator.getValue() + '.' + this.value.getValue();
     }
 
 }
