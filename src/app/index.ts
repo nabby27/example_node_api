@@ -1,7 +1,6 @@
 import dotenv from 'dotenv';
 import express, { Application } from 'express';
 import morgan from 'morgan';
-import 'reflect-metadata';
 import backofficeRoutes from './application/backoffice/routes';
 
 dotenv.config({ path: __dirname + '/../../.env' });
