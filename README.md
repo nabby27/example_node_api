@@ -1,5 +1,13 @@
 # Node DDD API Example
 
+## To see how works
+
+First of all, create the .`env` file (you have the example of the `.env.example` file).
+
+After starting the docker services, be sure to install the dependencies and if you want, you can run the migration to have the database structure and two registered users.
+
+---
+
 ## Commands
 
 ### Start docker services
@@ -72,6 +80,18 @@ docker-compose exec app npm run build
 
 This will only compile the typscript
 
+### Install dependencies
+
+```shell
+make install
+```
+
+or
+
+```shell
+docker-compose exec app npm install
+```
+
 ### Run eslint
 
 ```shell
@@ -123,14 +143,6 @@ docker-compose exec app npm run migrate:down
 ```shell
 docker-compose exec app npx db-migrate create {name_of_migration}
 ```
-
----
-
-## To see how works
-
-First of all, create the .`env` file (you have the example of the `.env.example` file).
-
-After starting the docker services and the application node make sure to run the migration up to have the database structure and two users record.
 
 ---
 
