@@ -1,9 +1,13 @@
 import dotenv from 'dotenv';
 import express, { Application } from 'express';
 import morgan from 'morgan';
+import 'reflect-metadata';
+import { createConnection } from 'typeorm';
 import backofficeRoutes from './application/backoffice/routes';
 
 dotenv.config({ path: __dirname + '/../../.env' });
+
+createConnection('backoffice');
 
 const app: Application = express();
 const port = process.env.NODE_PORT;

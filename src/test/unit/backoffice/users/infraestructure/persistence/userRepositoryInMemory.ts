@@ -1,4 +1,4 @@
-import { User } from '../../../../../../app/boundedContext/backoffice/users/domain/user';
+import { User } from '../../../../../../app/boundedContext/backoffice/users/domain/dtos/user';
 import { UserId } from '../../../../../../app/boundedContext/backoffice/users/domain/userId';
 import { UserRepository } from '../../../../../../app/boundedContext/backoffice/users/domain/userRepository';
 

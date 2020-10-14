@@ -1,4 +1,5 @@
-import { AggregateRoot } from '../../../shared/domain/aggregate/aggregateRoot';
+import { AggregateRoot } from '../../../../shared/domain/aggregate/aggregateRoot';
+import { UserModel } from '../models/user.model';
 import { UserId } from './userId';
 import { UserName } from './userName';
 
@@ -25,7 +26,7 @@ export class User extends AggregateRoot {
     return this.name.getValue();
   }
 
-  public toResponse(): { id: string, name: string } {
+  public toModel(): UserModel {
     return {
       id: this.getValueId(),
       name: this.getValueName()

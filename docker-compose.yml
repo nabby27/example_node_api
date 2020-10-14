@@ -1,38 +1,37 @@
 version: '3'
 
 services:
-
-  #PostgreSQL Service
-  db:
+  # Backoffice DB Service
+  backoffice_db:
     image: postgres:11.1-alpine
-    container_name: nabby_node_postgresql
+    container_name: backoffice_db
     environment:
-      POSTGRES_USER: ${POSTGRESQL_USER}
-      POSTGRES_PASSWORD: ${POSTGRESQL_PASSWORD}
-      POSTGRES_DB: ${POSTGRESQL_DATABASE}
+      POSTGRES_USER: ${BACKOFFICE_DB_USER}
+      POSTGRES_PASSWORD: ${BACKOFFICE_DB_PASSWORD}
+      POSTGRES_DB: ${BACKOFFICE_DB_DATABASE}
     ports:
-      - '${POSTGRESQL_PORT}:${POSTGRESQL_PORT}'
+      - '${BACKOFFICE_DB_PORT}:${BACKOFFICE_DB_PORT}'
     volumes:
       - ./docker/postgres/:/docker-entrypoint-initdb.d/
     networks:
       - api-network
 
-  #Node Service
-  app:
-    image: "node:14-alpine"
-    container_name: nabby_node_app
+  # Node Service
+  api:
+    image: 'node:14-alpine'
+    container_name: node_ddd_api
     restart: unless-stopped
     tty: true
-    working_dir: /app
+    working_dir: '/api'
     env_file: .env
     ports:
       - ${NODE_PORT}:${NODE_PORT}
     volumes:
-      - ./:/app
+      - ./:/api
     links:
-      - db
+      - backoffice_db
     depends_on:
-      - db
+      - backoffice_db
     networks:
       - api-network
 

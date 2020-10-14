@@ -1,19 +1,19 @@
 import { Request, Response } from 'express';
-import { UserCreator } from '../../../../boundedContext/backoffice/users/application/search/userCreator';
-import { User } from '../../../../boundedContext/backoffice/users/domain/user';
-import { UserId } from '../../../../boundedContext/backoffice/users/domain/userId';
-import { UserName } from '../../../../boundedContext/backoffice/users/domain/userName';
-import { UserRepositoryPg } from '../../../../boundedContext/backoffice/users/infraestructure/persistence/userRepositoryPg';
+import { UserCreator } from '../../../../boundedContext/backoffice/users/application/userCreator';
+import { User } from '../../../../boundedContext/backoffice/users/domain/dtos/user';
+import { UserId } from '../../../../boundedContext/backoffice/users/domain/dtos/userId';
+import { UserName } from '../../../../boundedContext/backoffice/users/domain/dtos/userName';
+import { UserRepositoryTypeORM } from '../../../../boundedContext/backoffice/users/infraestructure/persistence/userRepositoryTypeORM';
 import { HTTP_STATUS } from '../../../shared/constants/http_codes';
 
 export class UserCreateController {
 
   private userCreator: UserCreator;
-  private userRepositoryPg: UserRepositoryPg;
+  private userRepositoryImpl: UserRepositoryTypeORM;
 
   constructor() {
-    this.userRepositoryPg = new UserRepositoryPg();
-    this.userCreator = new UserCreator(this.userRepositoryPg);
+    this.userRepositoryImpl = new UserRepositoryTypeORM();
+    this.userCreator = new UserCreator(this.userRepositoryImpl);
   }
 
   public run(req: Request, res: Response): void {

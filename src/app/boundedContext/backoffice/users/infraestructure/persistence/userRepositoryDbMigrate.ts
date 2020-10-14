@@ -1,10 +1,10 @@
-import db from '../../../../shared/infraestructure/dbConnection';
-import { User } from '../../domain/user';
-import { UserId } from '../../domain/userId';
-import { UserName } from '../../domain/userName';
-import { UserRepository } from '../../domain/userRepository';
+import db from '../../../../shared/infraestructure/dbMigrateConnection';
+import { User } from '../../domain/dtos/user';
+import { UserId } from '../../domain/dtos/userId';
+import { UserName } from '../../domain/dtos/userName';
+import { UserRepository } from '../../domain/dtos/userRepository';
 
-export class UserRepositoryPg implements UserRepository {
+export class UserRepositoryDbMigrate implements UserRepository {
 
   public async searchOne(id: UserId): Promise<User> {
     return new Promise((resolve, reject) => {

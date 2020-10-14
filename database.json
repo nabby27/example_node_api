@@ -2,29 +2,29 @@
     "defaultEnv": {"ENV": "NODE_ENV"},
     "dev": {
         "driver": "pg",
-        "user": {"ENV": "POSTGRESQL_USER"},
-        "password": {"ENV": "POSTGRESQL_PASSWORD"},
-        "host": {"ENV": "POSTGRESQL_HOST"},
-        "database": {"ENV": "POSTGRESQL_DATABASE"},
-        "port": {"ENV": "POSTGRESQL_PORT"},
+        "user": {"ENV": "BACKOFFICE_DB_USER"},
+        "password": {"ENV": "BACKOFFICE_DB_PASSWORD"},
+        "host": {"ENV": "BACKOFFICE_DB_HOST"},
+        "database": {"ENV": "BACKOFFICE_DB_DATABASE"},
+        "port": {"ENV": "BACKOFFICE_DB_PORT"},
         "schema": "public"
     },
     "test": {
         "driver": "pg",
-        "user": {"ENV": "POSTGRESQL_USER"},
-        "password": {"ENV": "POSTGRESQL_PASSWORD"},
-        "host": {"ENV": "POSTGRESQL_HOST"},
-        "database": {"ENV": "POSTGRESQL_DATABASE"},
-        "port": {"ENV": "POSTGRESQL_PORT"},
+        "user": {"ENV": "BACKOFFICE_DB_USER"},
+        "password": {"ENV": "BACKOFFICE_DB_PASSWORD"},
+        "host": {"ENV": "BACKOFFICE_DB_HOST"},
+        "database": {"ENV": "BACKOFFICE_DB_DATABASE"},
+        "port": {"ENV": "BACKOFFICE_DB_PORT"},
         "schema": "public"
     },
     "prod": {
         "driver": "pg",
-        "user": {"ENV": "POSTGRESQL_USER"},
-        "password": {"ENV": "POSTGRESQL_PASSWORD"},
-        "host": {"ENV": "POSTGRESQL_HOST"},
-        "database": {"ENV": "POSTGRESQL_DATABASE"},
-        "port": {"ENV": "POSTGRESQL_PORT"},
+        "user": {"ENV": "BACKOFFICE_DB_USER"},
+        "password": {"ENV": "BACKOFFICE_DB_PASSWORD"},
+        "host": {"ENV": "BACKOFFICE_DB_HOST"},
+        "database": {"ENV": "BACKOFFICE_DB_DATABASE"},
+        "port": {"ENV": "BACKOFFICE_DB_PORT"},
         "schema": "public"
     }
 }

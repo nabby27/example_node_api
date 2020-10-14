@@ -1,5 +1,5 @@
-import { UserSearcher } from '../../../../../../app/boundedContext/backoffice/users/application/search/userSearcher';
-import { User } from '../../../../../../app/boundedContext/backoffice/users/domain/user';
+import { UserSearcher } from '../../../../../../app/boundedContext/backoffice/users/application/userSearcher';
+import { User } from '../../../../../../app/boundedContext/backoffice/users/domain/dtos/user';
 import { UserId } from '../../../../../../app/boundedContext/backoffice/users/domain/userId';
 import { UserName } from '../../../../../../app/boundedContext/backoffice/users/domain/userName';
 import { UserRepositoryInMemory } from '../../infraestructure/persistence/userRepositoryInMemory';
