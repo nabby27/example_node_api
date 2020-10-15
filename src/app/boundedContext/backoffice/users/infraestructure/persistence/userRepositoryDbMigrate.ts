@@ -1,8 +1,8 @@
-import db from '../../../../shared/infraestructure/dbMigrateConnection';
-import { User } from '../../domain/dtos/user';
-import { UserId } from '../../domain/dtos/userId';
-import { UserName } from '../../domain/dtos/userName';
-import { UserRepository } from '../../domain/dtos/userRepository';
+import db from '../../../../shared/infraestructure/persistence/dbMigrateConnection';
+import { User } from '../../domain/valueObjects/user';
+import { UserId } from '../../domain/valueObjects/userId';
+import { UserName } from '../../domain/valueObjects/userName';
+import { UserRepository } from '../../domain/valueObjects/userRepository';
 
 export class UserRepositoryDbMigrate implements UserRepository {
 

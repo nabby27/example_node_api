@@ -1,9 +1,11 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { UserCreator } from '../../../../boundedContext/backoffice/users/application/userCreator';
-import { User } from '../../../../boundedContext/backoffice/users/domain/dtos/user';
-import { UserId } from '../../../../boundedContext/backoffice/users/domain/dtos/userId';
-import { UserName } from '../../../../boundedContext/backoffice/users/domain/dtos/userName';
+import { UserNotFound } from '../../../../boundedContext/backoffice/users/domain/exceptions/userNotFound';
+import { User } from '../../../../boundedContext/backoffice/users/domain/valueObjects/user';
+import { UserId } from '../../../../boundedContext/backoffice/users/domain/valueObjects/userId';
+import { UserName } from '../../../../boundedContext/backoffice/users/domain/valueObjects/userName';
 import { UserRepositoryTypeORM } from '../../../../boundedContext/backoffice/users/infraestructure/persistence/userRepositoryTypeORM';
+import { BaseException } from '../../../../boundedContext/shared/domain/exceptions/base';
 import { HTTP_STATUS } from '../../../shared/constants/http_codes';
 
 export class UserCreateController {

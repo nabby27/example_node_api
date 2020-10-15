@@ -1,6 +1,6 @@
-import { User } from '../domain/dtos/user';
-import { UserId } from '../domain/dtos/userId';
-import { UserRepository } from '../domain/dtos/userRepository';
+import { User } from '../domain/valueObjects/user';
+import { UserId } from '../domain/valueObjects/userId';
+import { UserRepository } from '../domain/valueObjects/userRepository';
 
 export class UserSearcherOne {
 

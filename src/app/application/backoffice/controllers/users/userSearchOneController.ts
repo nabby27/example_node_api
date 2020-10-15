@@ -1,7 +1,7 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { UserSearcherOne } from '../../../../boundedContext/backoffice/users/application/userSearcherOne';
-import { User } from '../../../../boundedContext/backoffice/users/domain/dtos/user';
-import { UserId } from '../../../../boundedContext/backoffice/users/domain/dtos/userId';
+import { User } from '../../../../boundedContext/backoffice/users/domain/valueObjects/user';
+import { UserId } from '../../../../boundedContext/backoffice/users/domain/valueObjects/userId';
 import { UserRepositoryTypeORM } from '../../../../boundedContext/backoffice/users/infraestructure/persistence/userRepositoryTypeORM';
 import { HTTP_STATUS } from '../../../shared/constants/http_codes';
 
@@ -15,13 +15,10 @@ export class UserSearchOneController {
     this.userSearcherOne = new UserSearcherOne(this.userRepositoryImpl);
   }
 
-  public run(req: Request, res: Response): void {
+  public async run(req: Request, res: Response): Promise<void> {
     const id: UserId = new UserId(req.params.id);
-    this.userSearcherOne.run(id)
-      .then((user: User) => {
-        res.status(HTTP_STATUS.SUCCESS).send(user.toModel());
-      })
-      .catch((error: any) => console.log(error));
+    const user = await this.userSearcherOne.run(id);
+    res.status(HTTP_STATUS.SUCCESS).send(user.toModel());
   }
 
 }

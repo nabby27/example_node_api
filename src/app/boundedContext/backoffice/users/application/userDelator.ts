@@ -1,5 +1,5 @@
-import { UserId } from '../domain/dtos/userId';
-import { UserRepository } from '../domain/dtos/userRepository';
+import { UserId } from '../domain/valueObjects/userId';
+import { UserRepository } from '../domain/valueObjects/userRepository';
 
 export class UserDelator {
 

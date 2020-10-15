@@ -22,7 +22,15 @@
         "dist/**/*"
     ],
     "rules": {
-        "no-console": 1,
+        "no-console": [
+            1,
+            {
+                "allow": [
+                    "info",
+                    "warn"
+                ]
+            }
+        ],
         "eqeqeq": 2,
         "dot-notation": 2,
         "curly": 2,
@@ -118,8 +126,7 @@
             "never"
         ],
         "brace-style": [
-            "error",
-            "stroustrup"
+            "error"
         ],
         "camelcase": 2,
         "comma-dangle": [

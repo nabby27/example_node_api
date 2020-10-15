@@ -1,7 +1,7 @@
 import { UserSearcher } from '../../../../../../app/boundedContext/backoffice/users/application/userSearcher';
-import { User } from '../../../../../../app/boundedContext/backoffice/users/domain/dtos/user';
-import { UserId } from '../../../../../../app/boundedContext/backoffice/users/domain/userId';
-import { UserName } from '../../../../../../app/boundedContext/backoffice/users/domain/userName';
+import { User } from '../../../../../../app/boundedContext/backoffice/users/domain/valueObjects/user';
+import { UserId } from '../../../../../../app/boundedContext/backoffice/users/domain/valueObjects/userId';
+import { UserName } from '../../../../../../app/boundedContext/backoffice/users/domain/valueObjects/userName';
 import { UserRepositoryInMemory } from '../../infraestructure/persistence/userRepositoryInMemory';
 
 // eslint-disable-next-line max-lines-per-function

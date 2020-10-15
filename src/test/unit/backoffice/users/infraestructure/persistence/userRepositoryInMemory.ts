@@ -1,6 +1,6 @@
-import { User } from '../../../../../../app/boundedContext/backoffice/users/domain/dtos/user';
-import { UserId } from '../../../../../../app/boundedContext/backoffice/users/domain/userId';
-import { UserRepository } from '../../../../../../app/boundedContext/backoffice/users/domain/userRepository';
+import { User } from '../../../../../../app/boundedContext/backoffice/users/domain/valueObjects/user';
+import { UserId } from '../../../../../../app/boundedContext/backoffice/users/domain/valueObjects/userId';
+import { UserRepository } from '../../../../../../app/boundedContext/backoffice/users/domain/valueObjects/userRepository';
 
 export class UserRepositoryInMemory implements UserRepository {
 

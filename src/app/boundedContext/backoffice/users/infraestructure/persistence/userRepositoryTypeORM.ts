@@ -3,10 +3,12 @@ import { EntityManager, getConnection } from 'typeorm';
 import { UserEntity } from './typeORM/userEntity';
 
 import { UserModel } from '../../domain/models/user.model';
-import { User } from '../../domain/dtos/user';
-import { UserId } from '../../domain/dtos/userId';
-import { UserName } from '../../domain/dtos/userName';
-import { UserRepository } from '../../domain/dtos/userRepository';
+import { User } from '../../domain/valueObjects/user';
+import { UserId } from '../../domain/valueObjects/userId';
+import { UserName } from '../../domain/valueObjects/userName';
+import { UserRepository } from '../../domain/valueObjects/userRepository';
+import { UserNotFound } from '../../domain/exceptions/userNotFound';
+import { HTTP_STATUS } from '../../../../../application/shared/constants/http_codes';
 
 export class UserRepositoryTypeORM implements UserRepository {
 
@@ -16,7 +18,7 @@ export class UserRepositoryTypeORM implements UserRepository {
     const user = await entityManager.findOne(UserEntity, id.getValue());
 
     if (!user) {
-      throw new Error('User not exist');
+      throw new UserNotFound(HTTP_STATUS.NOT_FOUND, 'User not exist');
     }
 
     return this.getUsersByUsersModel(user)[firstItem];

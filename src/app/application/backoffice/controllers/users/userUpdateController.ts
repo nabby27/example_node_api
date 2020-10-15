@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 import { UserUpdator } from '../../../../boundedContext/backoffice/users/application/userUpdator';
-import { User } from '../../../../boundedContext/backoffice/users/domain/dtos/user';
-import { UserId } from '../../../../boundedContext/backoffice/users/domain/dtos/userId';
-import { UserName } from '../../../../boundedContext/backoffice/users/domain/dtos/userName';
+import { User } from '../../../../boundedContext/backoffice/users/domain/valueObjects/user';
+import { UserId } from '../../../../boundedContext/backoffice/users/domain/valueObjects/userId';
+import { UserName } from '../../../../boundedContext/backoffice/users/domain/valueObjects/userName';
 import { UserRepositoryTypeORM } from '../../../../boundedContext/backoffice/users/infraestructure/persistence/userRepositoryTypeORM';
 import { HTTP_STATUS } from '../../../shared/constants/http_codes';
 
