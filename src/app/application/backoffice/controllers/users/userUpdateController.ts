@@ -3,7 +3,7 @@ import { UserUpdator } from '../../../../boundedContext/backoffice/users/applica
 import { User } from '../../../../boundedContext/backoffice/users/domain/valueObjects/user';
 import { UserId } from '../../../../boundedContext/backoffice/users/domain/valueObjects/userId';
 import { UserName } from '../../../../boundedContext/backoffice/users/domain/valueObjects/userName';
-import { UserRepositoryTypeORM } from '../../../../boundedContext/backoffice/users/infraestructure/persistence/userRepositoryTypeORM';
+import { UserRepositoryTypeORM } from '../../../../boundedContext/backoffice/users/infrastructure/persistence/userRepositoryTypeORM';
 import { HTTP_STATUS } from '../../../shared/constants/http_codes';
 
 export class UserUpdateController {

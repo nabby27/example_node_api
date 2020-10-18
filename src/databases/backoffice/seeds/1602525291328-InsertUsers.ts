@@ -1,5 +1,5 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
-import { UserEntity } from '../../../app/boundedContext/backoffice/users/infraestructure/persistence/typeORM/userEntity';
+import { UserEntity } from '../../../app/boundedContext/backoffice/users/infrastructure/persistence/typeORM/userEntity';
 export class InsertUsers1602525291328 implements MigrationInterface {
 
   // eslint-disable-next-line max-lines-per-function

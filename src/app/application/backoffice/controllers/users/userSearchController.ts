@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { UserSearcher } from '../../../../boundedContext/backoffice/users/application/userSearcher';
 import { User } from '../../../../boundedContext/backoffice/users/domain/valueObjects/user';
-import { UserRepositoryTypeORM } from '../../../../boundedContext/backoffice/users/infraestructure/persistence/userRepositoryTypeORM';
+import { UserRepositoryTypeORM } from '../../../../boundedContext/backoffice/users/infrastructure/persistence/userRepositoryTypeORM';
 import { HTTP_STATUS } from '../../../shared/constants/http_codes';
 
 export class UserSearchController {

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { UserDelator } from '../../../../boundedContext/backoffice/users/application/userDelator';
 import { UserId } from '../../../../boundedContext/backoffice/users/domain/valueObjects/userId';
-import { UserRepositoryTypeORM } from '../../../../boundedContext/backoffice/users/infraestructure/persistence/userRepositoryTypeORM';
+import { UserRepositoryTypeORM } from '../../../../boundedContext/backoffice/users/infrastructure/persistence/userRepositoryTypeORM';
 import { HTTP_STATUS } from '../../../shared/constants/http_codes';
 
 export class UserDeleteController {

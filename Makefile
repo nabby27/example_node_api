@@ -1,4 +1,4 @@
-.PHONY: up down install migrate-up migrate-down seed-up seed-down run-dev run-start run-build run-test run-test-unit run-test-unit-coverage eslint-check eslint-fix
+.PHONY: up down install migrate-backoffice-run migrate-backoffice-revert seed-backoffice-run seed-backoffice-revert run-dev run-start run-build run-test run-test-unit run-test-unit-coverage eslint-check eslint-fix
 
 up:
 	@docker-compose up -d
@@ -9,16 +9,16 @@ down:
 install:
 	@docker-compose exec api npm install
 
-migrate-up: up
+migrate-backoffice-run: up
 	@docker-compose exec api npm run migrate:backoffice:run
 
-migrate-down: up
+migrate-backoffice-revert: up
 	@docker-compose exec api npm run migrate:backoffice:revert
 
-seed-up: up
+seed-backoffice-run: up
 	@docker-compose exec api npm run seed:backoffice:run
 
-seed-down: up
+seed-backoffice-revert: up
 	@docker-compose exec api npm run seed:backoffice:revert
 
 run-dev: up

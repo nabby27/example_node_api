@@ -24,7 +24,7 @@ docker-compose up -d
 
 This will start the Node and PostgreSQL docker services.
 
-> If haver error be sure that your local services are stopped.
+> If have error be sure that your local services (like postgreSQL) are stopped.
 
 ### Down docker services
 
@@ -106,7 +106,7 @@ docker-compose exec app npm run eslint:check
 docker-compose exec app npm run eslint:fix
 ```
 
-This will execute eslint to standard code.
+Rules for eslint are in `.eslintrc.json` file on root path.
 
 ### Run unit test
 
@@ -120,7 +120,17 @@ or
 docker-compose exec app npm run test:unit
 ```
 
-This will execute unit tests
+### Run coverage for unit test
+
+```shell
+make run-test-unit-coverage
+```
+
+or
+
+```shell
+docker-compose exec app npm run test:unit:coverage
+```
 
 ---
 
@@ -129,13 +139,25 @@ This will execute unit tests
 ### Run migrations up
 
 ```shell
-docker-compose exec app npm run migrate:up
+make migrate-backoffice-run
+```
+
+or
+
+```shell
+docker-compose exec app npm run migrate:backoffice:run
 ```
 
 ### Run migrations down
 
 ```shell
-docker-compose exec app npm run migrate:down
+make migrate-backoffice-revert
+```
+
+or
+
+```shell
+docker-compose exec app npm run migrate:backoffice:revert
 ```
 
 ### Create migrations
@@ -194,7 +216,7 @@ docker-compose exec app npx db-migrate create {name_of_migration}
 
 > Method: `POST`
 
-> URL: [http://localhost:8080/backoffice/users/32547dd7-617a-4985-a59a-91a176e55b83](http://localhost:8080/backoffice/users/32547dd7-617a-4985-a59a-91a176e55b83)
+> URL: [http://localhost:8080/backoffice/users](http://localhost:8080/backoffice/users)
 
 > Body:
 
@@ -220,6 +242,7 @@ docker-compose exec app npx db-migrate create {name_of_migration}
 
 ```json
 {
+  "id": "32547dd7-617a-4985-a59a-91a176e55b83",
   "name": "Other"
 }
 ```

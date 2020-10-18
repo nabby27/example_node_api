@@ -1,4 +1,4 @@
-import db from '../../../../shared/infraestructure/persistence/dbMigrateConnection';
+import db from '../../../../shared/infrastructure/persistence/dbMigrateConnection';
 import { UserModel } from '../../domain/models/user.model';
 import { User } from '../../domain/valueObjects/user';
 import { UserId } from '../../domain/valueObjects/userId';
