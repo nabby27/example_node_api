@@ -1,5 +1,6 @@
+import { UserAlreadyExists } from '../domain/exceptions/userAlreadyExists';
 import { User } from '../domain/valueObjects/user';
-import { UserRepository } from '../domain/valueObjects/userRepository';
+import { UserRepository } from '../domain/repositories/userRepository';
 import { UserSearcherOne } from './userSearcherOne';
 
 export class UserCreator {
@@ -11,14 +12,13 @@ export class UserCreator {
   }
 
   public async run(user: User): Promise<void> {
-    const userSearcherOne: UserSearcherOne = new UserSearcherOne(this.userRepository);
-    const userSearched = await userSearcherOne.run(user.getId());
+    const userSearched = await this.userRepository.searchOne(user.getId());
 
-    if (userSearched.getId()) {
-      throw new Error('Error when create user because user already exist');
+    if (userSearched) {
+      throw new UserAlreadyExists(user);
     }
 
-    this.userRepository.save(user);
+    await this.userRepository.save(user);
   }
 
 }

@@ -1,6 +1,6 @@
 import { Response } from 'express';
-import { HTTP_STATUS } from '../../../../application/shared/constants/http_codes';
-import { BaseException } from './base';
+import { HTTP_STATUS } from '../constants/http_codes';
+import { BaseException } from '../../../boundedContext/shared/domain/exceptions/base';
 
 export const exceptionHandler = (error: Error, res: Response): void => {
   if (error instanceof BaseException) {

@@ -1,5 +1,5 @@
 import { User } from '../domain/valueObjects/user';
-import { UserRepository } from '../domain/valueObjects/userRepository';
+import { UserRepository } from '../domain/repositories/userRepository';
 
 export class UserSearcher {
 

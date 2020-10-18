@@ -1,7 +1,7 @@
 import { Collection } from '../collection';
 import { Filter } from './filter';
 
-export class Filters extends Collection {
+export class Filters extends Collection<Filter> {
 
   constructor(items: Filter[]) {
     super(items);

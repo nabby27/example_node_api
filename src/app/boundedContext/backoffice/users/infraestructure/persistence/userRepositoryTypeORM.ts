@@ -6,19 +6,17 @@ import { UserModel } from '../../domain/models/user.model';
 import { User } from '../../domain/valueObjects/user';
 import { UserId } from '../../domain/valueObjects/userId';
 import { UserName } from '../../domain/valueObjects/userName';
-import { UserRepository } from '../../domain/valueObjects/userRepository';
-import { UserNotFound } from '../../domain/exceptions/userNotFound';
-import { HTTP_STATUS } from '../../../../../application/shared/constants/http_codes';
+import { UserRepository } from '../../domain/repositories/userRepository';
 
 export class UserRepositoryTypeORM implements UserRepository {
 
-  public async searchOne(id: UserId): Promise<User> {
+  public async searchOne(id: UserId): Promise<User | null> {
     const firstItem = 0;
     const entityManager: EntityManager = getConnection('backoffice').manager;
     const user = await entityManager.findOne(UserEntity, id.getValue());
 
     if (!user) {
-      throw new UserNotFound(HTTP_STATUS.NOT_FOUND, 'User not exist');
+      return null;
     }
 
     return this.getUsersByUsersModel(user)[firstItem];
@@ -31,19 +29,19 @@ export class UserRepositoryTypeORM implements UserRepository {
     return this.getUsersByUsersModel(...users);
   }
 
-  public save(user: User): void {
+  public async save(user: User): Promise<void> {
     const entityManager: EntityManager = getConnection('backoffice').manager;
-    entityManager.save(user.toModel());
+    await entityManager.save(UserEntity, user.toModel());
   }
 
-  public update(user: User): void {
+  public async update(user: User): Promise<void> {
     const entityManager: EntityManager = getConnection('backoffice').manager;
-    entityManager.save(user.toModel());
+    await entityManager.save(UserEntity, user.toModel());
   }
 
-  public delete(id: UserId): void {
+  public async delete(user: User): Promise<void> {
     const entityManager: EntityManager = getConnection('backoffice').manager;
-    entityManager.delete(UserEntity, id.getValue());
+    await entityManager.delete(UserEntity, user.getValueId());
   }
 
   private getUsersByUsersModel(...userModel: UserModel[]): User[] {

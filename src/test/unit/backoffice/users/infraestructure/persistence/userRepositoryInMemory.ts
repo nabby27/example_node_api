@@ -1,37 +1,63 @@
 import { User } from '../../../../../../app/boundedContext/backoffice/users/domain/valueObjects/user';
 import { UserId } from '../../../../../../app/boundedContext/backoffice/users/domain/valueObjects/userId';
-import { UserRepository } from '../../../../../../app/boundedContext/backoffice/users/domain/valueObjects/userRepository';
+import { UserRepository } from '../../../../../../app/boundedContext/backoffice/users/domain/repositories/userRepository';
+
+interface UserIndexed {
+  [id: string]: User
+}
 
 export class UserRepositoryInMemory implements UserRepository {
 
   private users: User[] = [];
+  private usersIndexed: UserIndexed = {}
 
-  public addUser(user: User): void {
-    this.users.push(user);
+  async searchOne(id: UserId): Promise<User | null> {
+    return await new Promise((resolve) => {
+      const user: User = this.usersIndexed[id.getValue()];
+      if (!user) {
+        resolve(null);
+      }
+
+      resolve(user);
+    });
   }
 
-  public setUsers(user: User[]): void {
-    this.users = user;
-  }
-
-  public searchOne(id: UserId): Promise<User> {
-    throw new Error('Method not implemented.');
-  }
-
-  public search(): Promise<User[]> {
-    return new Promise((resolve, reject) => {
+  search(): Promise<User[]> {
+    return new Promise((resolve) => {
       resolve(this.users);
     });
   }
 
-  save(user: User): void {
-    throw new Error('Method not implemented.');
+  save(user: User): Promise<void> {
+    return new Promise((resolve) => {
+      this.addUserInMemory(user);
+      resolve();
+    });
   }
-  update(user: User): void {
-    throw new Error('Method not implemented.');
+
+  update(userToUpdate: User): Promise<void> {
+    return new Promise((resolve) => {
+      this.delete(userToUpdate);
+      this.addUserInMemory(userToUpdate);
+      resolve();
+    });
   }
-  delete(ud: UserId): void {
-    throw new Error('Method not implemented.');
+
+  delete(userToDelete: User): Promise<void> {
+    return new Promise((resolve) => {
+      this.users = this.users.filter((user: User) => user.getValueId() !== userToDelete.getValueId());
+      delete this.usersIndexed[userToDelete.getValueId()];
+      resolve();
+    });
+  }
+
+  public addUsers(...users: User[]): void {
+    users.map(user => this.addUserInMemory(user));
+  }
+
+  private addUserInMemory(user: User): void {
+    this.users.push(user);
+    this.usersIndexed[user.getValueId()] = user;
   }
 
 }

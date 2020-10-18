@@ -1,6 +1,5 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { UserSearcherOne } from '../../../../boundedContext/backoffice/users/application/userSearcherOne';
-import { User } from '../../../../boundedContext/backoffice/users/domain/valueObjects/user';
 import { UserId } from '../../../../boundedContext/backoffice/users/domain/valueObjects/userId';
 import { UserRepositoryTypeORM } from '../../../../boundedContext/backoffice/users/infraestructure/persistence/userRepositoryTypeORM';
 import { HTTP_STATUS } from '../../../shared/constants/http_codes';

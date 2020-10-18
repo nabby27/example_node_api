@@ -12,14 +12,14 @@ module.exports = [
     username: process.env.BACKOFFICE_DB_USER,
     password: process.env.BACKOFFICE_DB_PASSWORD,
     database: process.env.BACKOFFICE_DB_DATABASE,
-    migrations: ['src/databases/backoffice/migrations/*.ts'],
+    migrations: ['src/databases/backoffice/migrations/*.{js,ts}'],
     cli: {
       migrationsDir: './src/databases/backoffice/migrations'
     },
     migrationsRun: true,
     synchronize: true,
     logging: true,
-    entities: ['src/**/backoffice/**/typeORM/*Entity.ts']
+    entities: ['src/**/backoffice/**/typeORM/*Entity.{js,ts}']
   },
   {
     type: 'postgres',
@@ -29,13 +29,13 @@ module.exports = [
     username: process.env.BACKOFFICE_DB_USER,
     password: process.env.BACKOFFICE_DB_PASSWORD,
     database: process.env.BACKOFFICE_DB_DATABASE,
-    migrations: ['src/databases/backoffice/seeds/*.ts'],
+    migrations: ['src/databases/backoffice/seeds/*.{js,ts}'],
     cli: {
       migrationsDir: './src/databases/backoffice/seeds'
     },
     migrationsRun: true,
     synchronize: true,
     logging: true,
-    entities: ['src/**/backoffice/**/typeORM/*Entity.ts']
+    entities: ['src/**/backoffice/**/typeORM/*Entity.{js,ts}']
   }
 ];

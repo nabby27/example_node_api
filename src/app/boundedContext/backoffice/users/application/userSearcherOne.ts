@@ -1,6 +1,7 @@
+import { UserNotFound } from '../domain/exceptions/userNotFound';
 import { User } from '../domain/valueObjects/user';
 import { UserId } from '../domain/valueObjects/userId';
-import { UserRepository } from '../domain/valueObjects/userRepository';
+import { UserRepository } from '../domain/repositories/userRepository';
 
 export class UserSearcherOne {
 
@@ -11,7 +12,13 @@ export class UserSearcherOne {
   }
 
   public async run(id: UserId): Promise<User> {
-    return await this.userRepository.searchOne(id);
+    const userSearched = await this.userRepository.searchOne(id);
+
+    if (!userSearched) {
+      throw new UserNotFound(id);
+    }
+
+    return userSearched;
   }
 
 }

@@ -18,6 +18,10 @@ export class User extends AggregateRoot {
     return this.id;
   }
 
+  public getName(): UserName {
+    return this.name;
+  }
+
   public getValueId(): string {
     return this.id.getValue();
   }

@@ -5,7 +5,7 @@ import morgan from 'morgan';
 import 'reflect-metadata';
 import { createConnection } from 'typeorm';
 import backofficeRoutes from './application/backoffice/routes';
-import { exceptionHandler } from './boundedContext/shared/domain/exceptions/exceptionHandler';
+import { exceptionHandler } from './application/shared/middlewares/exceptionHandler';
 
 dotenv.config({ path: __dirname + '/../../.env' });
 

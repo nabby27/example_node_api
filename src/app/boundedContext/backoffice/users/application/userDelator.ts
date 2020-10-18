@@ -1,5 +1,7 @@
+import { UserNotFound } from '../domain/exceptions/userNotFound';
 import { UserId } from '../domain/valueObjects/userId';
-import { UserRepository } from '../domain/valueObjects/userRepository';
+import { UserRepository } from '../domain/repositories/userRepository';
+import { UserSearcherOne } from './userSearcherOne';
 
 export class UserDelator {
 
@@ -9,8 +11,14 @@ export class UserDelator {
     this.userRepository = userRepository;
   }
 
-  public run(id: UserId): void {
-    this.userRepository.delete(id);
+  public async run(id: UserId): Promise<void> {
+    const userSearched = await this.userRepository.searchOne(id);
+
+    if (!userSearched) {
+      throw new UserNotFound(id);
+    }
+
+    this.userRepository.delete(userSearched);
   }
 
 }

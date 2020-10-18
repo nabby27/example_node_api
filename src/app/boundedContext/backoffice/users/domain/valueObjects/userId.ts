@@ -1,9 +1,15 @@
-import { Uuid } from '../../../../shared/domain/valueObjects/Uuid';
+import { UuidNotValid } from '../../../../shared/domain/exceptions/uuidNotValid';
+import { Uuid } from '../../../../shared/domain/valueObjects/uuid';
+import { UserIdNotvalid } from '../exceptions/userIdNotValid';
 
 export class UserId extends Uuid {
 
   constructor(id: string) {
-    super(id);
+    try {
+      super(id);
+    } catch (error) {
+      throw new UserIdNotvalid(id);
+    }
   }
 
 }

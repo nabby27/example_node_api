@@ -1,4 +1,4 @@
-import express, { NextFunction, Request, Response, Router } from 'express';
+import express, { Request, Response, Router } from 'express';
 import { asyncHandler } from '../../../boundedContext/shared/infraestructure/framework/utils/asyncHandler';
 import { UserCreateController } from '../controllers/users/userCreateController';
 import { UserDeleteController } from '../controllers/users/userDeleteController';
@@ -20,7 +20,7 @@ router.get('/users', (req: Request, res: Response) => {
   return userSearchController.run(req, res);
 });
 
-router.post('/users/:id', (req: Request, res: Response) => {
+router.post('/users', (req: Request, res: Response) => {
   const userCreateController: UserCreateController = new UserCreateController();
 
   return userCreateController.run(req, res);
