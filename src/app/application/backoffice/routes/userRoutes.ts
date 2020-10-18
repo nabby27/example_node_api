@@ -1,5 +1,5 @@
 import express, { Request, Response, Router } from 'express';
-import { asyncHandler } from '../../../boundedContext/shared/infraestructure/framework/utils/asyncHandler';
+import { asyncHandler } from '../../shared/framework/utils/asyncHandler';
 import { UserCreateController } from '../controllers/users/userCreateController';
 import { UserDeleteController } from '../controllers/users/userDeleteController';
 import { UserSearchController } from '../controllers/users/userSearchController';
