@@ -1,7 +1,6 @@
 import { UserAlreadyExists } from '../domain/exceptions/userAlreadyExists';
 import { User } from '../domain/valueObjects/user';
 import { UserRepository } from '../domain/repositories/userRepository';
-import { UserSearcherOne } from './userSearcherOne';
 
 export class UserCreator {
 

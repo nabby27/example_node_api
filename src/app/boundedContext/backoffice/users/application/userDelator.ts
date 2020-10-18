@@ -1,7 +1,6 @@
 import { UserNotFound } from '../domain/exceptions/userNotFound';
 import { UserId } from '../domain/valueObjects/userId';
 import { UserRepository } from '../domain/repositories/userRepository';
-import { UserSearcherOne } from './userSearcherOne';
 
 export class UserDelator {
 

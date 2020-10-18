@@ -1,6 +1,4 @@
-import { UuidNotValid } from '../../../../../app/boundedContext/shared/domain/exceptions/uuidNotValid';
 import { BaseString } from '../../../../../app/boundedContext/shared/domain/valueObjects/baseString';
-import { Uuid } from '../../../../../app/boundedContext/shared/domain/valueObjects/uuid';
 
 // eslint-disable-next-line max-lines-per-function
 describe('Unit test to Base String Value Object', () => {
