@@ -16,9 +16,9 @@ export class UserCreateController {
     this.userCreator = new UserCreator(this.userRepositoryImpl);
   }
 
-  public run(req: Request, res: Response): void {
+  public async run(req: Request, res: Response): Promise<void> {
     const user = new User(new UserId(req.body.id), new UserName(req.body.name));
-    this.userCreator.run(user);
+    await this.userCreator.run(user);
     res.status(HTTP_STATUS.CREATED).send();
   }
 

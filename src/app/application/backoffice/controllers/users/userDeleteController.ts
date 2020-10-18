@@ -14,8 +14,8 @@ export class UserDeleteController {
     this.userDelator = new UserDelator(this.userRepositoryImpl);
   }
 
-  public run(req: Request, res: Response): void {
-    this.userDelator.run(new UserId(req.params.id));
+  public async run(req: Request, res: Response): Promise<void> {
+    await this.userDelator.run(new UserId(req.params.id));
     res.status(HTTP_STATUS.SUCCESS).send();
   }
 

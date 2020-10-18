@@ -5,7 +5,7 @@ import { UserId } from '../valueObjects/userId';
 export class UserNotFound extends BaseException {
 
   constructor(id: UserId) {
-    const message = `error searching for user with id ${id.getValue()}, user does not exist`;
+    const message = `error user with id ${id.getValue()} does not exist`;
     super(HTTP_STATUS.NOT_FOUND, message);
   }
 

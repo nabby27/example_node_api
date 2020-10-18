@@ -4,7 +4,7 @@ import { BaseException } from '../../../../shared/domain/exceptions/base';
 export class UserIdNotvalid extends BaseException {
 
   constructor(id: string) {
-    const message = `error user id ${id} is not a uuid valid`;
+    const message = `error user id ${id} is not a user id valid`;
     super(HTTP_STATUS.BAD_REQUEST, message);
   }
 

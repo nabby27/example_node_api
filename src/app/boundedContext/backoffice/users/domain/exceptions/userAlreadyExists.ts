@@ -5,7 +5,7 @@ import { User } from '../valueObjects/user';
 export class UserAlreadyExists extends BaseException {
 
   constructor(user: User) {
-    const message = `error creating user with id ${user.getValueId()}, user already exists`;
+    const message = `error user with id ${user.getValueId()} already exists`;
     super(HTTP_STATUS.CONFLICT, message);
   }
 

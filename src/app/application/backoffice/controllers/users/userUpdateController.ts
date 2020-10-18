@@ -16,9 +16,9 @@ export class UserUpdateController {
     this.userUpdator = new UserUpdator(this.userRepositoryImpl);
   }
 
-  public run(req: Request, res: Response): void {
+  public async run(req: Request, res: Response): Promise<void> {
     const user = new User(new UserId(req.params.id), new UserName(req.body.name));
-    this.userUpdator.run(user);
+    await this.userUpdator.run(user);
     res.status(HTTP_STATUS.SUCCESS).send();
   }
 
