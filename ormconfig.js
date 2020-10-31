@@ -1,9 +1,11 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+'use strict';
+
+/* eslint-disable @typescript-eslint/no-var-requires */
 require('dotenv').config();
 
 const DEFAULT_BACKOFFICE_DB_PORT = 5432;
 
-module.exports = [
+const config = [
   {
     type: 'postgres',
     name: 'backoffice',
@@ -12,14 +14,18 @@ module.exports = [
     username: process.env.BACKOFFICE_DB_USER,
     password: process.env.BACKOFFICE_DB_PASSWORD,
     database: process.env.BACKOFFICE_DB_DATABASE,
-    migrations: ['src/databases/backoffice/migrations/*.{js,ts}'],
+    migrations: [
+      process.env.MIGRATIONS_PATH_FOR_BACKOFFICE
+    ],
     cli: {
-      migrationsDir: './src/databases/backoffice/migrations'
+      migrationsDir: process.env.MIGRATIONS_PATH_FOR_BACKOFFICE
     },
     migrationsRun: true,
     synchronize: true,
     logging: true,
-    entities: ['src/**/backoffice/**/typeORM/*Entity.{js,ts}']
+    entities: [
+      process.env.ENTITIES_PATH_FOR_BACKOFFICE
+    ]
   },
   {
     type: 'postgres',
@@ -29,13 +35,19 @@ module.exports = [
     username: process.env.BACKOFFICE_DB_USER,
     password: process.env.BACKOFFICE_DB_PASSWORD,
     database: process.env.BACKOFFICE_DB_DATABASE,
-    migrations: ['src/databases/backoffice/seeds/*.{js,ts}'],
+    migrations: [
+      process.env.SEEDS_PATH_FOR_BACKOFFICE
+    ],
     cli: {
-      migrationsDir: './src/databases/backoffice/seeds'
+      migrationsDir: process.env.SEEDS_PATH_FOR_BACKOFFICE
     },
     migrationsRun: true,
     synchronize: true,
     logging: true,
-    entities: ['src/**/backoffice/**/typeORM/*Entity.{js,ts}']
+    entities: [
+      process.env.ENTITIES_PATH_FOR_BACKOFFICE
+    ]
   }
 ];
+
+module.exports = config;

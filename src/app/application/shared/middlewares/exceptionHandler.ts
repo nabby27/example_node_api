@@ -10,7 +10,10 @@ export const exceptionHandler = (error: Error, res: Response): void => {
     });
   } else {
     res.status(HTTP_STATUS.SERVER_ERROR).json({
-      error: 'Error not contemplated'
+      error: 'Error not contemplated',
+      name: error.name,
+      message: error.message,
+      stack: error.stack
     });
   }
 };

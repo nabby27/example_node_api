@@ -47,7 +47,7 @@ make run-dev
 or
 
 ```shell
-docker-compose exec app npm run dev
+docker-compose exec api npm run dev
 ```
 
 This will run nodemon with typescript in dev environment.
@@ -61,7 +61,7 @@ make run-start
 or
 
 ```shell
-docker-compose exec app npm run start
+docker-compose exec api npm run start
 ```
 
 This will compile typescript in `./dist` folder and run nodemon with js transpiled.
@@ -75,7 +75,7 @@ make run-build
 or
 
 ```shell
-docker-compose exec app npm run build
+docker-compose exec api npm run build
 ```
 
 This will only compile the typscript
@@ -89,7 +89,7 @@ make install
 or
 
 ```shell
-docker-compose exec app npm install
+docker-compose exec api npm install
 ```
 
 ### Run eslint
@@ -102,8 +102,8 @@ make eslint-fix
 or
 
 ```shell
-docker-compose exec app npm run eslint:check
-docker-compose exec app npm run eslint:fix
+docker-compose exec api npm run eslint:check
+docker-compose exec api npm run eslint:fix
 ```
 
 Rules for eslint are in `.eslintrc.json` file on root path.
@@ -117,7 +117,7 @@ make run-test-unit
 or
 
 ```shell
-docker-compose exec app npm run test:unit
+docker-compose exec api npm run test:unit
 ```
 
 ### Run coverage for unit test
@@ -129,7 +129,7 @@ make run-test-unit-coverage
 or
 
 ```shell
-docker-compose exec app npm run test:unit:coverage
+docker-compose exec api npm run test:unit:coverage
 ```
 
 ---
@@ -145,7 +145,7 @@ make migrate-backoffice-run
 or
 
 ```shell
-docker-compose exec app npm run migrate:backoffice:run
+docker-compose exec api npm run migrate:backoffice:run
 ```
 
 ### Run migrations down
@@ -157,13 +157,13 @@ make migrate-backoffice-revert
 or
 
 ```shell
-docker-compose exec app npm run migrate:backoffice:revert
+docker-compose exec api npm run migrate:backoffice:revert
 ```
 
 ### Create migrations
 
 ```shell
-docker-compose exec app npx db-migrate create {name_of_migration}
+docker-compose exec api npx db-migrate create {name_of_migration}
 ```
 
 ---
