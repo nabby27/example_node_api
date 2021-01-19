@@ -9,13 +9,22 @@ down:
 	@docker-compose down
 
 install:
-	@docker-compose exec $(API_CONTAINER_NAME) npm install
+	@docker-compose exec $(API_CONTAINER_NAME) npm install $(ARGS)
+
+build:
+	@docker-compose exec $(API_CONTAINER_NAME) npm run build
+
+migrate-backoffice-create: up
+	@docker-compose exec $(API_CONTAINER_NAME) npm run migrate:backoffice:create $(ARGS)
 
 migrate-backoffice-run: up
 	@docker-compose exec $(API_CONTAINER_NAME) npm run migrate:backoffice:run
 
 migrate-backoffice-revert: up
 	@docker-compose exec $(API_CONTAINER_NAME) npm run migrate:backoffice:revert
+
+seed-backoffice-create: up
+	@docker-compose exec $(API_CONTAINER_NAME) npm run seed:backoffice:create $(ARGS)
 
 seed-backoffice-run: up
 	@docker-compose exec $(API_CONTAINER_NAME) npm run seed:backoffice:run
