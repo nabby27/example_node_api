@@ -3,14 +3,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 require('dotenv').config();
 
-const DEFAULT_BACKOFFICE_DB_PORT = 5432;
-
 const config = [
   {
     type: 'postgres',
     name: 'backoffice',
     host: process.env.BACKOFFICE_DB_HOST,
-    port: parseInt(process.env.BACKOFFICE_DB_PORT, 10) || DEFAULT_BACKOFFICE_DB_PORT,
+    port: parseInt(process.env.BACKOFFICE_DB_PORT, 10),
     username: process.env.BACKOFFICE_DB_USER,
     password: process.env.BACKOFFICE_DB_PASSWORD,
     database: process.env.BACKOFFICE_DB_DATABASE,
@@ -31,7 +29,7 @@ const config = [
     type: 'postgres',
     name: 'seeds-backoffice',
     host: process.env.BACKOFFICE_DB_HOST,
-    port: parseInt(process.env.BACKOFFICE_DB_PORT, 10) || DEFAULT_BACKOFFICE_DB_PORT,
+    port: parseInt(process.env.BACKOFFICE_DB_PORT, 10),
     username: process.env.BACKOFFICE_DB_USER,
     password: process.env.BACKOFFICE_DB_PASSWORD,
     database: process.env.BACKOFFICE_DB_DATABASE,
