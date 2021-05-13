@@ -1,17 +1,16 @@
-.PHONY: up down install migrate-backoffice-run migrate-backoffice-revert seed-backoffice-run seed-backoffice-revert run-dev run-start run-build run-test run-test-unit run-test-unit-coverage eslint-check eslint-fix
-
 API_CONTAINER_NAME=api
 
 up:
 	@docker-compose up -d
 
-down:
+down: up
 	@docker-compose down
 
-install:
+install: up
 	@docker-compose exec $(API_CONTAINER_NAME) npm install $(ARGS)
 
-build:
+.PHONY: build
+build: up
 	@docker-compose exec $(API_CONTAINER_NAME) npm run build
 
 migrate-backoffice-create: up
