@@ -1,14 +1,16 @@
+import { EXCEPTION_CODES } from './exceptionCodes';
+
 export class BaseException extends Error {
 
   constructor(
-    protected _httpCode: number,
+    protected _exceptionCode: EXCEPTION_CODES,
     protected _message: string
   ) {
     super();
   }
 
-  get httpCode(): number {
-    return this._httpCode;
+  get exceptionCode(): EXCEPTION_CODES {
+    return this._exceptionCode;
   }
 
   get message(): string {
